@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do</title>
+    <title>Task List</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <div class="left-div">
-      <h1 class="form-title">ADD NEW TASK</h1>
+      <h1 class="form-title">ADD TASK</h1>
 
       <div class="task-input">
-        <form id="task-input-form">
-          <input type="text" id="task-input-field" /><br />
-          <input type="textarea" id="description-input-field" /><br /><br />
+        <form id="task-input-form" class="task-input-form">
+          <input
+            type="text"
+            id="task-input-field"
+            class="task-input-field"
+          /><br />
+          <textarea
+            id="description-input-field"
+            name="task-description"
+            class="task-description"
+          ></textarea>
+          <br /><br />
           <button type="submit" class="task-add-button">ADD</button>
         </form>
       </div>
@@ -25,13 +31,13 @@
     <template id="card-template">
       <div class="card">
         <div class="card-body">
+          <h4 class="task-title"><b>Title of task</b></h4>
           <button class="card-button" data-button-delete>DELETE</button>
           <button class="card-button" data-button-expand>EXPAND</button>
-          <h4 class="task-title"><b>Title of task</b></h4>
           <input type="checkbox" class="task-checkbox" /><br />
-          <div class="task-description-toggle hide">
-            <p class="task-description"></p>
-          </div>
+        </div>
+        <div class="task-description-toggle hide">
+          <p class="task-description"></p>
         </div>
       </div>
     </template>

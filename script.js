@@ -22,7 +22,7 @@ tasks.forEach(renderTask);
 //expand/collapse description based on click event
 document.addEventListener('click', (e) => {
   if (e.target.matches('[data-button-expand]')) {
-    const card = e.target.closest('.card-body');
+    const card = e.target.closest('.card');
     const description = card.querySelector('.task-description-toggle');
     e.target.innerText == 'EXPAND'
       ? (e.target.innerText = 'COLLAPSE')
@@ -31,7 +31,19 @@ document.addEventListener('click', (e) => {
   }
 });
 
-//DELETE A TASK
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.card-body') || e.target.matches('.task-title')) {
+    const card = e.target.closest('.card');
+    const description = card.querySelector('.task-description-toggle');
+    description.classList.toggle('hide');
+    const btn = card.querySelector('[data-button-expand]');
+    btn.innerText == 'EXPAND'
+      ? (btn.innerText = 'COLLAPSE')
+      : (btn.innerText = 'EXPAND');
+  }
+});
+
+//DELETE TASK
 document.addEventListener('click', (e) => {
   if (e.target.matches('[data-button-delete]')) {
     const card = e.target.closest('.card');
@@ -42,12 +54,15 @@ document.addEventListener('click', (e) => {
   }
 });
 
-//ADD A TASK
+//ADD TASK
 //steps: create a task object with title, description, and ID
 //render the task and save the task into storage
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (taskInput.value === '') return;
+  if (taskInput.value === '') {
+    alert('cant add blank');
+    return;
+  }
   const newTask = {
     name: taskInput.value,
     description: descInput.value,
