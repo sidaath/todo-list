@@ -7,6 +7,7 @@ body {
   justify-content: space-between;
   margin: 0;
   height: 100vh;
+  font-size: 1.5em;
 }
 
 .right-div {
@@ -86,21 +87,37 @@ body {
   flex-wrap: wrap;
 }
 
+.task-input-field {
+  height: 2em;
+}
+
 .task-input-field,
 .task-description {
   width: 100%;
   resize: none;
+  border: olive;
+  border-radius: 0.3em;
+  outline: none;
 }
 
 .task-description {
-  height: 5em;
+  height: 7em;
 }
 
 button {
   cursor: pointer;
 }
 
+.task-add-button {
+  width: 40%;
+  height: 2em;
+}
 .form-title {
   color: black;
   font-family: Arial;
+}
+
+.task-input-field:focus,
+.task-description:focus {
+  box-shadow: 0 0 5px green;
 }
